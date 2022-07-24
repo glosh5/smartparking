@@ -10,7 +10,7 @@ const Search = (props) => {
           value={data}
           type="text"
           id={id}
-          placeholder="Search"
+          placeholder="name. ex: Marie"
         />
         <label htmlFor={id}>
           <span>
