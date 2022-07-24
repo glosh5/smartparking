@@ -56,7 +56,7 @@ class Login extends Component {
 							<input
 								id='password'
 								name='password'
-								type='text'
+								type='password'
 								value={password}
 								placeholder='Enter your password'
 								onChange={handelChange}

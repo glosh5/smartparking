@@ -6,12 +6,15 @@ import axios from "axios";
 
 const Car = ({ carInfo: car, onModify, onDelete }) =>{
 
-    const onAlert = async (clientNumber) => {
-      console.log(clientNumber);
+    const onAlert = async (car) => {
+      console.log(car);
 
-        await(axios.get(`https://smart-parking-management.herokuapp.com/api/sendAlert?cNumber=${clientNumber}`))
-        .then((message) => console.log(message))
-        .catch((err) => console.log(err));
+      try {
+        const response = await(axios.get(`https://smart-parking-management.herokuapp.com/api/sendAlert?cNumber=${car.phoneNumber}`))
+        alert("Alert : " + response.data)  
+      }catch (err) {
+        console.log(err)
+      }
     }
 
     return (
@@ -36,7 +39,7 @@ const Car = ({ carInfo: car, onModify, onDelete }) =>{
           </button>
         </td>
         <td>
-          <button onClick={() => onAlert(car.phoneNumber)} className="btn btn-warning">
+          <button onClick={() => onAlert(car)} className="btn btn-warning">
             Alert
           </button>
         </td>
